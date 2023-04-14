@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 
 const NavigationBar = () => {
-  const { pathname } = useLocation();
-  const paths = pathname.split("/");
-  const active = paths[1]; // "/home"
+  // const { pathname } = useLocation();
+  // const paths = pathname.split("/");
+  // const active = paths[1]; // "/home"
   //   console.log(paths, active);
   return (
     <>
@@ -29,29 +29,27 @@ const NavigationBar = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link
-                  className={`nav-link ${active === "home" ? "active" : ""} ${
-                    active === "" ? "active" : ""
-                  }`}
-                  aria-current="page"
-                  to="/home"
-                >
+                <Link className="nav-link" aria-current="page" to="/home">
                   Home
                 </Link>
               </li>
               <li className="nav-item">
-                <Link
-                  className={`nav-link ${active === "profile" ? "active" : ""}`}
-                  to="/profile"
-                >
+                <Link className="nav-link" to="/writeups">
+                  Write-ups
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/users">
+                  Users
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/profile">
                   Profile
                 </Link>
               </li>
               <li className="nav-item">
-                <Link
-                  className={`nav-link ${active === "login" ? "active" : ""}`}
-                  to="/login"
-                >
+                <Link className="nav-link" to="/login">
                   Login/Register
                 </Link>
               </li>

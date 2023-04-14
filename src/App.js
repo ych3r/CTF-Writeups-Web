@@ -1,14 +1,14 @@
 import './App.css';
 import { BrowserRouter } from "react-router-dom";
 import { Routes, Route } from "react-router";
-import WriteUps from './writeups';
+import CtfWriteUps from './ctf-writeups';
 
 function App() {
   return (
     <BrowserRouter>
       <div className="container">
         <Routes>
-          <Route path="/*" element={<WriteUps />} />
+          <Route path="/*" element={<CtfWriteUps />} />
         </Routes>
       </div>
     </BrowserRouter>

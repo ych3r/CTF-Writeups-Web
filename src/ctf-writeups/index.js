@@ -2,10 +2,12 @@ import React from "react";
 import {Routes, Route} from "react-router";
 import NavigationBar from "./navbar";
 import HomeComponent from "./home";
+import WriteupsComponent from "./writeups";
+import UsersComponent from "./users";
 import ProfileComponent from "./profile";
 import LoginComponent from "./login";
 
-const WriteUps = () => {
+const CtfWriteUps = () => {
   return (
     <>
       <NavigationBar />
@@ -13,6 +15,8 @@ const WriteUps = () => {
         <Routes>
           <Route path="/" element={<HomeComponent />} />
           <Route path="home" element={<HomeComponent />} />
+          <Route path="writeups" element={<WriteupsComponent />} />
+          <Route path="users" element={<UsersComponent />} />
           <Route path="profile" element={<ProfileComponent />} />
           <Route path="login" element={<LoginComponent />} />
         </Routes>
@@ -21,4 +25,4 @@ const WriteUps = () => {
   );
 };
 
-export default WriteUps;
+export default CtfWriteUps;
