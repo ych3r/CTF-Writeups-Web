@@ -6,7 +6,10 @@ import {
   deleteWriteup,
   findWriteups,
 } from "../../services/writeups-service";
-import { findWriteupsThunk } from "../../services/writeups-thunks";
+import {
+  findWriteupsThunk,
+  deleteWriteupThunk,
+} from "../../services/writeups-thunks";
 
 const initialState = {
   writeups: [],
@@ -28,6 +31,10 @@ const tuitsSlice = createSlice({
     [findWriteupsThunk.rejected]: (state, action) => {
       state.loading = false;
       state.error = action.error;
+    },
+    [deleteWriteupThunk.fulfilled]: (state, { payload }) => {
+      state.loading = false;
+      state.writeups = state.writeups.filter((w) => w._id !== payload);
     },
   },
   reducers: {},
