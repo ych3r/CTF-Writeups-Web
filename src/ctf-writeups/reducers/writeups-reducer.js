@@ -16,7 +16,7 @@ const initialState = {
   loading: false,
 };
 
-const tuitsSlice = createSlice({
+const writeupsSlice = createSlice({
   name: "writeups",
   initialState,
   extraReducers: {
@@ -40,4 +40,4 @@ const tuitsSlice = createSlice({
   reducers: {},
 });
 
-export default tuitsSlice.reducer;
+export default writeupsSlice.reducer;
