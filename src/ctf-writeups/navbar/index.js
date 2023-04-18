@@ -1,12 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 // import { useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const NavigationBar = () => {
   // const { pathname } = useLocation();
   // const paths = pathname.split("/");
   // const active = paths[1]; // "/home"
   //   console.log(paths, active);
+  const { currentUser } = useSelector((state) => state.auth);
+  // console.log(currentUser.isAdmin);
   return (
     <>
       {/* <h4>NavigationBar</h4> */}
@@ -38,21 +41,27 @@ const NavigationBar = () => {
                   Write-ups
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/users">
-                  Users
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/profile">
-                  Profile
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/login">
-                  Login/Register
-                </Link>
-              </li>
+              {currentUser && currentUser.isAdmin && (
+                <li className="nav-item">
+                  <Link className="nav-link" to="/users">
+                    Users
+                  </Link>
+                </li>
+              )}
+              {currentUser && (
+                <li className="nav-item">
+                  <Link className="nav-link" to="/profile">
+                    Profile
+                  </Link>
+                </li>
+              )}
+              {!currentUser && (
+                <li className="nav-item">
+                  <Link className="nav-link" to="/login">
+                    Login/Register
+                  </Link>
+                </li>
+              )}
             </ul>
             <form className="d-flex" role="search">
               <input
