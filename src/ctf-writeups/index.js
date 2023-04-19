@@ -11,6 +11,7 @@ import LoginComponent from "./login";
 
 import writeupsReducer from "./reducers/writeups-reducer";
 import authReducer from "./reducers/auth-reducer";
+import usersReducer from "./reducers/users-reducer";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 
@@ -18,6 +19,7 @@ const store = configureStore({
   reducer: {
     writeups: writeupsReducer,
     auth: authReducer,
+    users: usersReducer,
   },
 });
 

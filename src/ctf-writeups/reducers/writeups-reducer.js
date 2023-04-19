@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import {
-  updateWriteup,
-  createWriteup,
-  deleteWriteup,
-  findWriteups,
-} from "../../services/writeups-service";
+// import {
+//   updateWriteup,
+//   createWriteup,
+//   deleteWriteup,
+//   findWriteups,
+// } from "../../services/writeups-service";
 import {
   findWriteupsThunk,
   deleteWriteupThunk,
