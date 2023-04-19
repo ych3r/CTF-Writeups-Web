@@ -12,9 +12,12 @@ const WriteupsList = () => {
   return (
     <ul className="list-group">
       {loading && <li className="list-group-item">Loading...</li>}
-      {writeups.map((writeup) => (
-        <WriteupItem key={writeup._id} writeup={writeup} />
-      ))}
+      {writeups
+        .slice(0)
+        .reverse()
+        .map((writeup) => (
+          <WriteupItem key={writeup._id} writeup={writeup} />
+        ))}
     </ul>
   );
 };

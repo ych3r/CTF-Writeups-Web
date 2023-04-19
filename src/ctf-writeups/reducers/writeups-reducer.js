@@ -10,6 +10,7 @@ import {
   findWriteupsThunk,
   deleteWriteupThunk,
   createWriteupThunk,
+  updateWriteupThunk,
 } from "../../services/writeups-thunks";
 
 const initialState = {
@@ -40,6 +41,14 @@ const writeupsSlice = createSlice({
     [createWriteupThunk.fulfilled]: (state, { payload }) => {
       state.loading = false;
       state.writeups.push(payload);
+    },
+    [updateWriteupThunk.fulfilled]: (state, { payload }) => {
+      state.loading = false;
+      const writeupNdx = state.writeups.findIndex((w) => w._id === payload._id);
+      state.writeups[writeupNdx] = {
+        ...state.writeups[writeupNdx],
+        ...payload,
+      };
     },
   },
   reducers: {},

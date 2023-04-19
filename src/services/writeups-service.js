@@ -18,4 +18,7 @@ export const deleteWriteup = async (wid) => {
   return response.data;
 };
 
-export const updateWriteup = async (writeup) => {};
+export const updateWriteup = async (writeup) => {
+  const response = await axios.put(`${WRITEUPS_API}/${writeup._id}`, writeup);
+  return writeup;
+};

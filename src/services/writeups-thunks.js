@@ -21,3 +21,8 @@ export const createWriteupThunk = createAsyncThunk(
     return newWriteup;
   }
 );
+
+export const updateWriteupThunk = createAsyncThunk(
+  "writeups/updateWriteup",
+  async (writeup) => await service.updateWriteup(writeup)
+);
