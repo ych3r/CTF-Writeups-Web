@@ -1,10 +1,11 @@
 import React from "react";
+import WhatsTheSolution from "./whats-the-solution";
 import WriteupsList from "./writeups-list";
 
 const WriteupsComponent = () => {
     return (
       <>
-        <h4>Write ups</h4>
+        <WhatsTheSolution />
         <WriteupsList />
       </>
     );

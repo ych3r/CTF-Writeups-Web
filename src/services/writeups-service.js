@@ -1,8 +1,12 @@
 import axios from "axios";
 
-const WRITEUPS_API = "http://localhost:4000/api/writeups";
+const API_BASE = process.env.REACT_APP_API_BASE;
+const WRITEUPS_API = `${API_BASE}/writeups`;
 
-export const createWriteup = async (writeup) => {};
+export const createWriteup = async (writeup) => {
+  const response = await axios.post(WRITEUPS_API, writeup);
+  return response.data;
+};
 
 export const findWriteups = async () => {
   const response = await axios.get(WRITEUPS_API);

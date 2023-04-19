@@ -9,6 +9,7 @@ import {
 import {
   findWriteupsThunk,
   deleteWriteupThunk,
+  createWriteupThunk,
 } from "../../services/writeups-thunks";
 
 const initialState = {
@@ -35,6 +36,10 @@ const writeupsSlice = createSlice({
     [deleteWriteupThunk.fulfilled]: (state, { payload }) => {
       state.loading = false;
       state.writeups = state.writeups.filter((w) => w._id !== payload);
+    },
+    [createWriteupThunk.fulfilled]: (state, { payload }) => {
+      state.loading = false;
+      state.writeups.push(payload);
     },
   },
   reducers: {},

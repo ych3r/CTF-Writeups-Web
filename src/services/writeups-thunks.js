@@ -13,3 +13,11 @@ export const deleteWriteupThunk = createAsyncThunk(
     return writeupId;
   }
 );
+
+export const createWriteupThunk = createAsyncThunk(
+  "writeups/createWriteup",
+  async (writeup) => {
+    const newWriteup = await service.createWriteup(writeup);
+    return newWriteup;
+  }
+);

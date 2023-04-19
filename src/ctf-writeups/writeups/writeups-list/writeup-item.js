@@ -15,9 +15,10 @@ const WriteupItem = ({ writeup }) => {
           onClick={() => deleteWriteupHandler(writeup._id)}
         ></i>
         <div>
-          [{writeup.ctf}] #{writeup.problem} - {writeup.date}
+          [{writeup.ctf}] #{writeup.problem}{" "}
+          <span className="fw-bolder">{writeup.username}</span> - {writeup.date}
         </div>
-        <span className="fw-bolder">{writeup.username}</span>
+
         <div>{writeup.writeup}</div>
       </div>
     </li>
