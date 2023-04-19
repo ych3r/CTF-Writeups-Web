@@ -23,7 +23,7 @@ const ProfileComponent = () => {
   }, []);
   return (
     <>
-      <h4>{profile.username}'s profile</h4>
+      {profile && <h4>{profile.username}'s profile</h4>}
       {profile && (
         <div>
           <label className="fw-bolder">username:</label>
@@ -39,20 +39,23 @@ const ProfileComponent = () => {
               setProfile(newProfile);
             }}
           />
+          <div>
+            <button
+              className="btn btn-danger mt-2"
+              onClick={() => {
+                dispatch(logoutThunk());
+                navigate("/login");
+              }}
+            >
+              Logout
+            </button>
+            <button className="btn btn-primary mt-2 ms-2" onClick={save}>
+              Save
+            </button>
+          </div>
         </div>
       )}
-      <button
-        className="btn btn-danger mt-2"
-        onClick={() => {
-          dispatch(logoutThunk());
-          navigate("/login");
-        }}
-      >
-        Logout
-      </button>
-      <button className="btn btn-primary mt-2 ms-2" onClick={save}>
-        Save
-      </button>
+      {!profile && (<h4 className="text-danger">Wrong username or password!</h4>)}
     </>
   );
 };
