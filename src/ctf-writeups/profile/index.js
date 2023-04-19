@@ -23,12 +23,13 @@ const ProfileComponent = () => {
   }, []);
   return (
     <>
-      <h4>Profile</h4>
+      <h4>{profile.username}'s profile</h4>
       {profile && (
         <div>
-          <label>username</label>
+          <label className="fw-bolder">username:</label>
           <input
             type="text"
+            className="rounded"
             value={profile.username}
             onChange={(event) => {
               const newProfile = {
@@ -41,7 +42,7 @@ const ProfileComponent = () => {
         </div>
       )}
       <button
-        className="btn btn-danger"
+        className="btn btn-danger mt-2"
         onClick={() => {
           dispatch(logoutThunk());
           navigate("/login");
@@ -49,7 +50,7 @@ const ProfileComponent = () => {
       >
         Logout
       </button>
-      <button className="btn btn-primary" onClick={save}>
+      <button className="btn btn-primary mt-2 ms-2" onClick={save}>
         Save
       </button>
     </>

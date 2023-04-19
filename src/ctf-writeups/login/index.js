@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 import { loginThunk } from "../../services/auth-thunks";
+import { registerThunk } from "../../services/auth-thunks";
 
 const LoginComponent = () => {
   const [username, setUsername] = useState("");
@@ -16,9 +17,16 @@ const LoginComponent = () => {
       alert(e);
     }
   };
+  const handleRegister = async () => {
+    try {
+      await dispatch(registerThunk({ username, password }));
+      navigate("/profile");
+    } catch (e) {
+      alert(e);
+    }
+  };
   return (
     <>
-      <h4>Login</h4>
       <div>
         <label>Username</label>
         <input
@@ -37,7 +45,12 @@ const LoginComponent = () => {
           onChange={(event) => setPassword(event.target.value)}
         />
       </div>
-      <button className="btn btn-primary" onClick={handleLogin}>Login</button>
+      <button className="btn btn-primary mt-2" onClick={handleLogin}>
+        Login
+      </button>
+      <button className="btn btn-secondary mt-2 ms-2" onClick={handleRegister}>
+        Register
+      </button>
     </>
   );
 };
