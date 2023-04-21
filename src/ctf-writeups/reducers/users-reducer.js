@@ -4,7 +4,6 @@ import {
   deleteUserThunk,
   changeRoleThunk,
 } from "../../services/users-thunks";
-import { faL } from "@fortawesome/free-solid-svg-icons";
 
 const initialState = {
   users: [],

@@ -41,7 +41,7 @@ const UserItem = ({ user }) => {
             defaultChecked={user.role === "moderator"}
             onChange={changeRoleHandler}
           />
-          <label className="form-check-label">delete permission</label>
+          <label className="form-check-label">permission to delete user</label>
         </div>
       )}
       {!user.isAdmin && (

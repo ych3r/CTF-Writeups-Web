@@ -1,7 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 // import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { findCTFEvent } from "../../services/ctf-service";
 
 const NavigationBar = () => {
   // const { pathname } = useLocation();
@@ -10,6 +11,11 @@ const NavigationBar = () => {
   //   console.log(paths, active);
   const { currentUser } = useSelector((state) => state.auth);
   // console.log(currentUser.isAdmin);
+  const [search, setSearch] = useState("");
+  const navigate = useNavigate();
+  const searchCTF = async () => {
+    navigate(`/ctf/${search}`);
+  };
   return (
     <>
       {/* <h4>NavigationBar</h4> */}
@@ -67,10 +73,16 @@ const NavigationBar = () => {
               <input
                 className="form-control me-2"
                 type="search"
-                placeholder="Search"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder="Search CTF"
                 aria-label="Search"
               />
-              <button className="btn btn-outline-success" type="submit">
+              <button
+                className="btn btn-outline-success"
+                type="submit"
+                onClick={searchCTF}
+              >
                 Search
               </button>
             </form>
