@@ -13,6 +13,11 @@ export const findWriteups = async () => {
   return response.data;
 };
 
+export const findWriteupsByCtfId = async (cid) => {
+  const response = await axios.get(`${WRITEUPS_API}/${cid}`);
+  return response.data;
+};
+
 export const deleteWriteup = async (wid) => {
   const response = await axios.delete(`${WRITEUPS_API}/${wid}`);
   return response.data;

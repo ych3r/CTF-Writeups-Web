@@ -6,6 +6,11 @@ export const findWriteupsThunk = createAsyncThunk(
   async () => await service.findWriteups()
 );
 
+export const findWriteupsByCtfIdThunk = createAsyncThunk(
+  "writeups/findWriteupsByCtfId",
+  async (ctfId) => await service.findWriteupsByCtfId(ctfId)
+);
+
 export const deleteWriteupThunk = createAsyncThunk(
   "writeups/deleteWriteup",
   async (writeupId) => {

@@ -8,6 +8,7 @@ import { createSlice } from "@reduxjs/toolkit";
 // } from "../../services/writeups-service";
 import {
   findWriteupsThunk,
+  findWriteupsByCtfIdThunk,
   deleteWriteupThunk,
   createWriteupThunk,
   updateWriteupThunk,
@@ -33,6 +34,11 @@ const writeupsSlice = createSlice({
     [findWriteupsThunk.rejected]: (state, action) => {
       state.loading = false;
       state.error = action.error;
+    },
+    [findWriteupsByCtfIdThunk.fulfilled]: (state, { payload }) => {
+      state.loading = false;
+      console.log(payload);
+      state.writeups = payload;
     },
     [deleteWriteupThunk.fulfilled]: (state, { payload }) => {
       state.loading = false;

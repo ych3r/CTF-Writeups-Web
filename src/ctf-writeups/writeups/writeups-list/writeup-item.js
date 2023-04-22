@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   deleteWriteupThunk,
   updateWriteupThunk,
@@ -54,7 +55,8 @@ const WriteupItem = ({ writeup }) => {
               ></i>
             )}
           <div>
-            [{writeup.ctf}] #{writeup.problem}{" "}
+            <Link to={`/ctf/${writeup.ctf}`}>[{writeup.ctf}]</Link>#
+            {writeup.problem}{" "}
             <span className="fw-bolder">{writeup.username}</span> -{" "}
             {writeup.date}
           </div>

@@ -33,8 +33,8 @@ const CtfWriteUps = () => {
       <NavigationBar />
       <div>
         <Routes>
-          <Route path="/" element={<HomeComponent />} />
-          <Route path="/home" element={<HomeComponent />} />
+          <Route path="/" element={<WriteupsComponent />} />
+          {/* <Route path="/home" element={<HomeComponent />} /> */}
           <Route path="/writeups" element={<WriteupsComponent />} />
           <Route path="/users" element={<UsersComponent />} />
           <Route path="/profile" element={<ProfileComponent />} />
