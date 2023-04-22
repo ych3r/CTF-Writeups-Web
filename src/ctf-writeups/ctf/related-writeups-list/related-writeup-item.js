@@ -3,9 +3,11 @@ import React from "react";
 const RelatedWriteupItem = ({ writeup }) => {
 //   console.log(writeup);
   return (
-    <>
-      <h4>{writeup.ctf}</h4>
-    </>
+    <li className="list-group-item">
+      <span>{writeup.username} #{writeup.problem}</span>
+      <p>{writeup.writeup}</p>
+      <i>likes: {writeup.likes}</i>
+    </li>
   );
 };
 
